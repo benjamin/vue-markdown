@@ -1,11 +1,6 @@
 import markdownIt from 'markdown-it'
 import subscript from 'markdown-it-sub'
 import superscript from 'markdown-it-sup'
-import deflist from 'markdown-it-deflist'
-import abbreviation from 'markdown-it-abbr'
-import insert from 'markdown-it-ins'
-import mark from 'markdown-it-mark'
-import tasklists from 'markdown-it-task-lists'
 
 export default {
   md: new markdownIt(),
@@ -71,10 +66,6 @@ export default {
       type: String,
       default: 'table',
     },
-    taskLists: {
-      type: Boolean,
-      default: true
-    },
     toc: {
       type: Boolean,
       default: false,
@@ -137,11 +128,6 @@ export default {
     this.md = new markdownIt()
       .use(subscript)
       .use(superscript)
-      .use(deflist)
-      .use(abbreviation)
-      .use(insert)
-      .use(mark)
-      .use(tasklists, { enabled: this.taskLists })
 
     this.md.set({
       html: this.html,
